@@ -1,0 +1,18 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+        if(nums.length==1){
+            return nums[0];
+        }
+        Arrays.sort(nums);
+        HashMap<Integer,Integer> g=new HashMap<>();
+        for(int t:nums){
+            g.put(t,g.getOrDefault(t,0)+1);
+        }
+        for(int a:nums){
+            if(g.get(a)==1){
+                return a;
+            }
+        }
+        return 0;
+    }
+}
