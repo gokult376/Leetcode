@@ -1,0 +1,17 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> num=new HashMap<>();
+        for(int a:nums){
+            num.put(a,num.getOrDefault(a,0)+1);
+        }
+        int max=0;
+        int maxvalue=0;
+        for(int b:num.keySet()){
+            if(num.get(b)>max){
+                max=num.get(b);
+                maxvalue=b;
+            }
+        }
+        return maxvalue;
+    }
+}
